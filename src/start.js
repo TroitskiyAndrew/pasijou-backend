@@ -1,0 +1,24 @@
+const express = require('express');
+const cors = require('cors');
+const config = require('./config/config');
+const guestController = require('./controllers/guestController');
+const menuController = require('./controllers/menuController');
+const orderController = require('./controllers/orderController');
+const authController = require('./controllers/authController');
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+app.get('/guests/id/:id', guestController.getGuestById);  
+app.get('/guests/phone/:phone', guestController.getGuestByPhone);  
+app.post('/guests/create', guestController.createGuest);  
+
+app.get('/menu', menuController.getMenu);
+app.post('/order', orderController.createOrder);
+app.get('/auth/:phone', authController.sendCode);
+app.post('/auth', authController.checkCode);
+
+app.listen(config.port, () => {
+    console.log(`Server running on port ${config.port}`);
+});
