@@ -20,7 +20,10 @@ function postRequest(url, body){
             throw new Error(res.data.error);
         }
         return res.data.response;
-    }).catch(error => {throw new Error(error.response.data.message)});
+    }).catch(error => {
+        console.log(error)
+        throw new Error(error.response.data.message)
+    });
 }
 
 module.exports = {
