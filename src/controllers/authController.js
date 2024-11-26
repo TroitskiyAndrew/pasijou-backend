@@ -9,6 +9,7 @@ const sendCode = async (req, res) => {
         await smsService.sendCode(phone, code);
         res.status(200).send(true);
     } catch (error) {
+        console.log(error)
         res.status(500).send(error.message);
     }
 }

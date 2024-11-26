@@ -23,6 +23,7 @@ const createGuest = async (req, res) => {
         const response = await apiService.post(`clients.createClient`, req.body);
         res.status(200).send({client_id: response});
     } catch (error) {
+        console.log(error)
         res.status(500).send(error.message);
     }
 }

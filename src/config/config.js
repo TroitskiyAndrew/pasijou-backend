@@ -6,7 +6,9 @@ module.exports = {
     posterApiUrl: process.env.POSTER_URL ?? '',
     posterApiToken: process.env.POSTER_TOKEN ?? '',
     port: process.env.PORT || 3000, 
-    twilioSid: process.env.TWILIO_ACCOUNT_SID ?? '',
-    twilioToken: process.env.TWILIO_ACCOUNT_TOKEN ?? '',
-    twilioSender: process.env.TWILIO_ACCOUNT_SENDER ?? '',
+    greenApiUrl: process.env.GREEN_API_URL ?? '',
+    greenApiInstance: process.env.GREEN_API_INSTANCE ?? '',
+    greenApiTokenInstance: process.env.GREEN_API_TOKEN_INSTANCE ?? '',
+    smsTextStart: process.env.SMS_TEXT_START ?? 'Verification code: ',
+    smsTextEnd: process.env.SMS_TEXT_END ?? '',
 };
