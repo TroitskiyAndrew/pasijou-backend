@@ -15,7 +15,9 @@ function getRequest(url){
 }
 
 function postRequest(url, body){
+    console.log('request',url, body)
     return axios.post(completeUrl(url), body).then(res => {
+        console.log('response',res.data)
         if(res.data.error){
             throw new Error(res.data.error);
         }
