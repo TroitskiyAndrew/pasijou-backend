@@ -9,7 +9,7 @@ const getMenu = async (req, res) => {
         categories.forEach(category => {
             category.products = products.filter(product => product.menu_category_id === category.category_id)
         });
-        res.status(200).send(categories);
+        res.status(200).send(categories.filter(category => category.products.length));
     } catch (error) {
         res.status(500).send(error.message);
     }
