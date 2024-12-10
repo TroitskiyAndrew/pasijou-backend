@@ -15,8 +15,11 @@ function getRequest(url){
 }
 
 function postRequest(url, body){
-    console.log('request',url, body)
+    console.log('_request_');
+    console.log('url',url);
+    console.log('body',body);
     return axios.post(completeUrl(url), body).then(res => {
+        console.log('_response_')
         console.log('response',res.data)
         if(res.data.error){
             throw new Error(res.data.error);
