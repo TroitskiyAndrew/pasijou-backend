@@ -15,4 +15,16 @@ const sendCode = (to, code) => {
     });
 }
 
+const sendWaiterRequest = (table) => {
+    return axios.post(url, {
+        chatId: "120363386202209285@g.us",
+        message: `Table №${table} is waiting for a waiter`
+    }, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+}
+
 module.exports.sendCode = sendCode;
+module.exports.sendWaiterRequest = sendWaiterRequest;
