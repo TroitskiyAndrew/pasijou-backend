@@ -18,6 +18,7 @@ app.post('/guests/create', guestController.createGuest);
 app.get('/menu', menuController.getMenu);
 app.post('/order', orderController.createOrder);
 app.get('/order/:id', orderController.getOrder);
+app.get('/waiter/:table', orderController.callWaiter);
 app.post('/updateOrder', orderController.updateOrder);
 app.get('/auth/:phone', authController.sendCode);
 app.post('/auth', authController.checkCode);

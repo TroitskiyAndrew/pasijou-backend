@@ -1,4 +1,5 @@
-const apiService = require('../services/api-service')
+const apiService = require('../services/api-service');
+const smsService = require('../services/sms-service');
 
 const createOrder = async (req, res) => {
     try {        
@@ -29,6 +30,18 @@ const updateOrder = async (req, res) => {
     }
 }
 
+const callWaiter = async (req, res) => {
+    try {
+            const table = req.params.table;
+            await smsService.sendWaiterRequest(table)
+            res.status(200).send(true);
+        } catch (error) {
+            console.log(error)
+            res.status(500).send(error.message);
+        }
+}
+
 module.exports.createOrder = createOrder;
 module.exports.getOrder = getOrder;
 module.exports.updateOrder = updateOrder;
+module.exports.callWaiter = callWaiter;
