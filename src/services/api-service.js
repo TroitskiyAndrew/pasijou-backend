@@ -14,6 +14,10 @@ function getRequest(url){
     }).catch(error => {throw new Error(error.response.data.message)});
 }
 
+function simpleGetRequest(url){
+    return axios.get(url);
+}
+
 function postRequest(url, body){
     console.log('_request_');
     console.log('url',url);
@@ -34,4 +38,5 @@ function postRequest(url, body){
 module.exports = {
     get: getRequest,
     post: postRequest,
+    simpleGet: simpleGetRequest
 };
