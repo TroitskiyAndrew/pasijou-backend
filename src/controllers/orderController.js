@@ -21,7 +21,9 @@ const getOrder = async (req, res) => {
     const now = new Date();
     try {
         const currentDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
-        const response = await apiService.get(`transactions.getTransactions?date_from=${currentDate}&date_to=${currentDate}&per_page=1000`);
+        const yesterday = new Date(now.getTime() - 48 * 60 * 60 *1000);
+        const yesterdayDate = `${yesterday.getFullYear()}-${yesterday.getMonth() + 1}-${now.getDate()}`;
+        const response = await apiService.get(`transactions.getTransactions?date_from=${yesterdayDate}&date_to=${currentDate}&per_page=1000`);
         const orders = response.data.find(({ transaction_id }) => transaction_id === Number(id));
         res.status(200).send(orders);
     } catch (error) {
